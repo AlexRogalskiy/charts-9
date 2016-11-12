@@ -1,0 +1,20 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: elasticsearch
+    role: client
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9108"
+spec:
+  selector:
+    app: elasticsearch
+    role: client
+    name: {{ template "fullname" . }}
+  ports:
+    - name: http
+      port: 9200
+      protocol: TCP

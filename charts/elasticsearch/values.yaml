@@ -1,0 +1,70 @@
+nameOverride: es
+image:
+  repository: quay.io/pires/docker-elasticsearch-kubernetes
+  tag: 2.4.1
+  pullPolicy: IfNotPresent
+
+metrics:
+  image:
+    repository: quay.io/roboll/elasticsearch-metrics
+    tag: v0.3.0
+    pullPolicy: IfNotPresent
+
+cluster:
+  name: logging
+
+master:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 1024Mi
+    requests:
+      cpu: 500m
+      memory: 1024Mi
+  metrics:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+client:
+  replicas: 1
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2048Mi
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  metrics:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
+
+data:
+  replicas: 3
+  storage:
+    class: anything
+    size: 100Gi
+  resources:
+    limits:
+      cpu: 500m
+      memory: 2048Mi
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  metrics:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 128Mi
+      requests:
+        cpu: 100m
+        memory: 128Mi
