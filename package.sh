@@ -8,4 +8,4 @@ for chart in $dir/charts/*; do
     mv $name-*.tgz docs/
 done
 
-helm repo index docs --url https://roboll.github.io/charts
+helm repo index docs --url http://roboll.io/charts
