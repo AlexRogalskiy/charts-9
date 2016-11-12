@@ -1,0 +1,23 @@
+{{ if .Values.ingress.domain }}
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: kibana
+    name: {{ template "fullname" . }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+spec:
+  tls:
+    - secretName: kibana.{{ .Values.ingress.domain }}
+  rules:
+    - host: kibana.{{ .Values.ingress.domain }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ template "fullname" . }}
+              servicePort: 80
+{{ end }}
