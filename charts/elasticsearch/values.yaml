@@ -11,7 +11,7 @@ metrics:
     pullPolicy: IfNotPresent
 
 cluster:
-  name: logging
+  name: elasticsearch
 
 master:
   resources:
