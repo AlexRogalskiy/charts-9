@@ -3,6 +3,7 @@ image:
   repository: kibana
   tag: 4.6
   pullPolicy: IfNotPresent
+
 resources:
   limits:
     cpu: 1000m
@@ -13,11 +14,11 @@ resources:
 
 elasticsearch:
   protocol: http
-  host: elasticsearch
+  host: ""
   port: 9200
 
 ingress:
-  domain: "example.com"
+  domain: ""
   annotations:
     kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.class: "private"

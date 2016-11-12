@@ -19,7 +19,11 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
+{{ if .Values.elasticsearch.host }}
             - --elasticsearch={{ .Values.elasticsearch.protocol }}://{{ .Values.elasticsearch.host }}:{{ .Values.elasticsearch.port }}
+{{ else }}
+            - --elasticsearch={{ .Values.elasticsearch.protocol }}://{{ template "fullname" . }}-es:{{ .Values.elasticsearch.port }}
+{{ end }}
           ports:
             - containerPort: 5601
               name: ui
