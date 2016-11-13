@@ -1,1 +1,3 @@
+Fluentd is running in namespace {{ .Release.Namespace }}.
 
+Logs are forwarded to Elasticsearch at {{ .Values.elasticsearch.domain }}:{{ .Values.elasticsearch.port }}.

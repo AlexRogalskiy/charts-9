@@ -1,0 +1,10 @@
+Kibana is running in namespace {{ .Release.Namespace }}.
+
+{{ if .Values.ingress.domain }}
+Kibana UI is accessible through Ingress at http://kibana.{{ .Values.ingress.domain}}.
+{{ else }}
+No Ingress domain was specified; Kibana UI is not exposed externally.
+{{ end }}
+
+Kibana can be proxied locally:
+    kubectl port-forward {kibana-pod} 5601

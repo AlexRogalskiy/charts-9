@@ -1,1 +1,1 @@
-
+Elasticsearch, Fluentd, and Kibana are running in namespace {{ .Release.Namespace }}.

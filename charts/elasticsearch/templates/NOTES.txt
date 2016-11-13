@@ -1,1 +1,18 @@
+Elasticsearch cluster is running in namespace {{ .Release.Namespace }}.
 
+    Data (only) nodes are deployed as PetSet {{ template "fullname" . }}-data with persistent volumes.
+    Client (API) nodes serve the REST API and are deployed as Deployment {{ template "fullname" . }}-client.
+
+Elasticsearch API is accessible at http://{{ template "fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:9200 within the cluster.
+
+{{ if .Values.ingress.domain }}
+Elasticsearch API is accessible through Ingress at http://elasticsearch.{{ .Values.ingress.domain}}.
+{{ else }}
+No Ingress domain was specified; the API is not exposed externally.
+{{ end }}
+
+To scale data nodes:
+    kubectl scale petset {{ template "fullname" . }}-data --replicas 2
+
+To scale api nodes:
+    kubectl scale deployment {{ template "fullname" . }}-client --replicas 2
