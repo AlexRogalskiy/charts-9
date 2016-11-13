@@ -1,6 +1,6 @@
 image:
   repository: quay.io/roboll/fluentd-kubernetes
-  tag: v1.0
+  tag: v1.19
   pullPolicy: IfNotPresent
 
 resources:
