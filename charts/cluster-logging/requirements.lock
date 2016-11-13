@@ -1,12 +1,12 @@
 dependencies:
 - name: elasticsearch
   repository: http://roboll.io/charts
-  version: 0.13.0
+  version: 0.14.0
 - name: fluentd
   repository: http://roboll.io/charts
-  version: 0.7.0
+  version: 0.8.0
 - name: kibana
   repository: http://roboll.io/charts
-  version: 0.3.0
-digest: sha256:1a3a158d35b3e0d80ec344426a5561cd968fcd63f600be26f6e76e6f6e9059a9
-generated: 2016-11-13T17:46:47.003139816-05:00
+  version: 0.4.0
+digest: sha256:23c4b587f04c64ac01e443bedb030d4fa62eacf4a9cc2e40a33b79c257f6dc35
+generated: 2016-11-13T18:44:13.124251682-05:00
