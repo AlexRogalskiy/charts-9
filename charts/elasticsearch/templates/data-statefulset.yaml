@@ -49,7 +49,6 @@ spec:
               mountPath: /data
             - name: config
               mountPath: /elasticsearch/config/
-              readOnly: true
           resources:
 {{ toYaml .Values.data.resources | indent 12 }}
         - name: metrics
