@@ -41,23 +41,30 @@ spec:
             - name: HTTP_ENABLE
               value: "false"
           ports:
-            - containerPort: 9300
-              name: transport
+            - name: transport
+              containerPort: 9300
               protocol: TCP
           volumeMounts:
-            - mountPath: /data
-              name: storage
+            - name: storage
+              mountPath: /data
+            - name: config
+              mountPath: /elasticsearch/config/
+              readOnly: true
           resources:
 {{ toYaml .Values.data.resources | indent 12 }}
         - name: metrics
           image: "{{ .Values.metrics.image.repository }}:{{ .Values.metrics.image.tag }}"
           imagePullPolicy: {{ .Values.metrics.image.pullPolicy }}
           ports:
-            - containerPort: 9108
-              name: metrics
+            - name: metrics
+              containerPort: 9108
               protocol: TCP
           resources:
 {{ toYaml .Values.data.metrics.resources | indent 12 }}
+      volumes:
+        - name: config
+          configMap:
+            name: {{ template "fullname" . }}
   volumeClaimTemplates:
     - metadata:
         name: storage
