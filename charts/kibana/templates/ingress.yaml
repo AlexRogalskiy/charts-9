@@ -5,7 +5,6 @@ metadata:
   name: {{ template "fullname" . }}
   labels:
     app: kibana
-    name: {{ template "fullname" . }}
     chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
