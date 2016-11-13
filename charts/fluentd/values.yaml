@@ -1,5 +1,5 @@
 image:
-  repository: quay.io/roboll/kube-fluentd
+  repository: quay.io/roboll/fluentd-kubernetes
   tag: v1.0
   pullPolicy: IfNotPresent
 

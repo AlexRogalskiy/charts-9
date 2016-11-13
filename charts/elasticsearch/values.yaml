@@ -1,17 +1,18 @@
 nameOverride: es
 image:
-  repository: quay.io/pires/docker-elasticsearch-kubernetes
+  repository: quay.io/roboll/elasticsearch-kubernetes
   tag: 2.4.1
   pullPolicy: IfNotPresent
 
 metrics:
   image:
     repository: quay.io/roboll/elasticsearch-metrics
-    tag: v0.3.0
+    tag: 0.3.0
     pullPolicy: IfNotPresent
 
 ingress:
   domain: ""
+  annotations: ""
 
 cluster:
   name: elasticsearch
