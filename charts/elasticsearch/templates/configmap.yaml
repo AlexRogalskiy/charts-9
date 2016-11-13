@@ -12,6 +12,7 @@ data:
       data: ${NODE_DATA}
 
     network.host: ${NETWORK_HOST}
+    network.bind_host: 0.0.0.0
 
     path:
       data: /data/data
@@ -39,7 +40,7 @@ data:
       zen:
         minimum_master_nodes: ${NUMBER_OF_MASTERS}
 
-    plugin.mandatory: discovery-kubernetes
+    plugin.mandatory: cloud-kubernetes
 
   logging.yml: |
     es.logger.level: INFO
