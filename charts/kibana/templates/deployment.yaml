@@ -5,7 +5,7 @@ metadata:
   labels:
     app: kibana
     name: {{ template "fullname" . }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   replicas: {{ .Values.replicaCount }}
   template:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: kibana
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
 {{- if .Values.elasticsearch.host }}

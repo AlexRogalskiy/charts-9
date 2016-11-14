@@ -5,7 +5,7 @@ metadata:
   labels:
     app: fluentd
     name: {{ template "fullname" . }}
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   template:
     metadata:
@@ -17,14 +17,14 @@ spec:
       serviceAccount: {{ template "fullname" . }}
       containers:
         - name: fluentd
-          image: "{{ default "quay.io/roboll/fluentd-kube" .Values.image.repository }}:{{  .Values.image.tag }}"
+          image: {{ .Values.image.repository }}:{{  .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: ELASTICSEARCH_HOST
 {{- if .Values.elasticsearch.host }}
-              value: "{{ .Values.elasticsearch.host }}"
+              value: {{ .Values.elasticsearch.host }}
 {{- else }}
-              value: "{{ template "fullname" . }}-es"
+              value: {{ template "fullname" . }}-es
 {{- end }}
             - name: ELASTICSEARCH_PORT
               value: "{{ .Values.elasticsearch.port }}"

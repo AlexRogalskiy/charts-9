@@ -6,7 +6,7 @@ metadata:
   labels:
     app: elasticsearch
     role: client
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:

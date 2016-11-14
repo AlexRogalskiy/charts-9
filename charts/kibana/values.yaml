@@ -17,6 +17,9 @@ elasticsearch:
   host: ""
   port: 9200
 
+service:
+  name: kibana
+
 ingress:
   tls: false
   domain: ""

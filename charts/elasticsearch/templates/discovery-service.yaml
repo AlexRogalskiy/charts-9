@@ -5,7 +5,7 @@ metadata:
   labels:
     app: elasticsearch
     role: master
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
   annotations:
     prometheus.io/scrape: "true"
     prometheus.io/port: "9108"

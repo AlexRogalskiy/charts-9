@@ -5,7 +5,7 @@ metadata:
   labels:
     app: elasticsearch
     role: client
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   replicas: {{ .Values.client.replicas }}
   template:
@@ -18,7 +18,7 @@ spec:
       serviceAccount: {{ template "fullname" . }}
       containers:
         - name: elasticsearch
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             privileged: true
@@ -54,7 +54,7 @@ spec:
           resources:
 {{ toYaml .Values.client.resources | indent 12 }}
         - name: metrics
-          image: "{{ .Values.metrics.image.repository }}:{{ .Values.metrics.image.tag }}"
+          image: {{ .Values.metrics.image.repository }}:{{ .Values.metrics.image.tag }}
           imagePullPolicy: {{ .Values.metrics.image.pullPolicy }}
           ports:
             - name: metrics
