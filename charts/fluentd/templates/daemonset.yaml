@@ -21,11 +21,11 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: ELASTICSEARCH_HOST
-{{ if .Values.elasticsearch.host }}
+{{- if .Values.elasticsearch.host }}
               value: "{{ .Values.elasticsearch.host }}"
-{{ else }}
+{{- else }}
               value: "{{ template "fullname" . }}-es"
-{{ end }}
+{{- end }}
             - name: ELASTICSEARCH_PORT
               value: "{{ .Values.elasticsearch.port }}"
           volumeMounts:

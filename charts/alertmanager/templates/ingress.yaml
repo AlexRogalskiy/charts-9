@@ -1,4 +1,4 @@
-{{ if .Values.ingress.domain }}
+{{- if .Values.ingress.domain }}
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
@@ -9,10 +9,10 @@ metadata:
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
-{{ if .Values.ingress.tls }}
+{{- if .Values.ingress.tls }}
   tls:
     - secretName: alerts.{{ .Values.ingress.domain }}
-{{ end }}
+{{- end }}
   rules:
     - host: alerts.{{ .Values.ingress.domain }}
       http:
@@ -21,4 +21,4 @@ spec:
             backend:
               serviceName: {{ .Values.service.name }}
               servicePort: 80
-{{ end }}
+{{- end }}

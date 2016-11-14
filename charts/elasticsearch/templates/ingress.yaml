@@ -1,4 +1,4 @@
-{{ if .Values.ingress.domain }}
+{{- if .Values.ingress.domain }}
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
@@ -10,10 +10,10 @@ metadata:
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
-{{ if .Values.ingress.tls }}
+{{- if .Values.ingress.tls }}
   tls:
     - secretName: elasticsearch.{{ .Values.ingress.domain }}
-{{ end }}
+{{- end }}
   rules:
     - host: elasticsearch.{{ .Values.ingress.domain }}
       http:
@@ -22,4 +22,4 @@ spec:
             backend:
               serviceName: {{ template "fullname" . }}
               servicePort: 9200
-{{ end }}
+{{- end }}
