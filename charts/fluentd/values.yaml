@@ -16,3 +16,6 @@ resources:
 elasticsearch:
   host: ""
   port: 9200
+
+service:
+  name: fluentd
