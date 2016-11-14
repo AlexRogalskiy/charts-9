@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ template "fullname" . }}-data
+  name: {{ .Values.service.name }}-data
   labels:
     app: elasticsearch
     role: data

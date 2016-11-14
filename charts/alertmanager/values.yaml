@@ -1,6 +1,6 @@
 image:
-  repository: prom/alertmanager
-  tag: v0.3.0
+  repository: quay.io/prometheus/alertmanager
+  tag: v0.5.0
   pullPolicy: IfNotPresent
 
 resources:
