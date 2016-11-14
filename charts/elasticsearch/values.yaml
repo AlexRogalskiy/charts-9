@@ -12,6 +12,9 @@ metrics:
     tag: v0.3.0
     pullPolicy: IfNotPresent
 
+service:
+  name: elasticsearch
+
 ingress:
   tls: false
   domain: ""

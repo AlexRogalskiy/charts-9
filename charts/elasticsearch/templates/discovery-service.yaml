@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ template "fullname" .  }}-discovery
+  name: {{ .Values.service.name  }}-discovery
   labels:
     app: elasticsearch
     role: master

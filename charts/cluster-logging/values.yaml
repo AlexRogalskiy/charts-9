@@ -1,11 +1,15 @@
 elasticsearch:
   cluster:
     name: logging
+  service:
+    name: logging-elasticsearch
   ingress:
     domain: ""
     annotations: ""
 
 kibana:
+  elasticsearch:
+    host: logging-elasticsearch
   ingress:
     domain: ""
     annotations: ""

@@ -35,7 +35,7 @@ spec:
             - name: CLUSTER_NAME
               value: {{ .Values.cluster.name }}
             - name: DISCOVERY_SERVICE
-              value: {{ template "fullname" . }}-discovery
+              value: {{ .Values.service.name }}-discovery
             - name: NODE_MASTER
               value: "false"
             - name: HTTP_ENABLE
