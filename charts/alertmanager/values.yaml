@@ -1,0 +1,25 @@
+image:
+  repository: prom/alertmanager
+  tag: v0.3.0
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+storage:
+  disabled: false
+  class: anything
+  size: 10Gi
+
+service:
+  name: alertmanager
+
+ingress:
+  tls: false
+  domain: ""
+  annotations: ""

@@ -1,0 +1,16 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app: alertmanager
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: alertmanager
+    name: {{ template "fullname" . }}
+  ports:
+    - protocol: TCP
+      targetPort: 9093
+      port: 80

@@ -10,8 +10,10 @@ metadata:
   annotations:
 {{ toYaml .Values.ingress.annotations | indent 4 }}
 spec:
+{{ if .Values.ingress.tls }}
   tls:
     - secretName: elasticsearch.{{ .Values.ingress.domain }}
+{{ end }}
   rules:
     - host: elasticsearch.{{ .Values.ingress.domain }}
       http:

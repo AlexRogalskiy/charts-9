@@ -1,4 +1,6 @@
 nameOverride: es
+rbac: true
+
 image:
   repository: quay.io/roboll/elasticsearch-kubernetes
   tag: v2.4.1
@@ -11,6 +13,7 @@ metrics:
     pullPolicy: IfNotPresent
 
 ingress:
+  tls: false
   domain: ""
   annotations: ""
 
