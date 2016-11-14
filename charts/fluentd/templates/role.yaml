@@ -1,36 +1,13 @@
 {{ if .Values.rbac }}
 ---
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1alpha1
-metadata:
-  name: {{ template "fullname" . }}
-rules:
-  - apiGroups: [""]
-    resources: ["pod", "namespace"]
-    verbs: ["get", "watch", "list"]
-    nonResourceURLs: []
-
----
-kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1alpha1
-metadata:
-  name: {{ template "fullname" . }}
-subjects:
-  - kind: ServiceAccount
-    name: {{ template "fullname" . }}
-    namespace: {{ .Release.Namespace }}
-roleRef:
-  kind: Role
-  name: {{ template "fullname" . }}
-  namespace: {{ .Release.Namespace }}
-  apiVersion: rbac.authorization.k8s.io/v1alpha1
-
----
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
   name: {{ template "fullname" . }}
 rules:
+  - apiGroups: [""]
+    resources: ["pods", "namespace"]
+    verbs: ["get", "watch", "list"]
   - verbs: ["get"]
     nonResourceURLs: ["/api"]
 
