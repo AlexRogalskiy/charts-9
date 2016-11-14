@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.blackbox.service.name }}
+  labels:
+    app: blackbox-exporter
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  selector:
+    app: blackbox-exporter
+    name: {{ template "fullname" . }}
+  ports:
+    - protocol: TCP
+      targetPort: 9115
+      port: 80

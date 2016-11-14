@@ -1,0 +1,17 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.node.service.name }}
+  labels:
+    app: node-exporter
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: node-exporter
+    name: {{ template "fullname" . }}
+  ports:
+    - name: scrape
+      port: 9100
+      protocol: TCP

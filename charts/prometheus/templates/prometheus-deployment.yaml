@@ -3,7 +3,7 @@ apiVersion: extensions/v1beta1
 metadata:
   name: {{ template "fullname" . }}
   labels:
-    app: alertmanager
+    app: prometheus
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   replicas: 1
@@ -11,41 +11,46 @@ spec:
     metadata:
       name: {{ template "fullname" . }}
       labels:
-        app: alertmanager
+        app: prometheus
         name: {{ template "fullname" . }}
     spec:
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: configmap-reload
           image: {{ .Values.reloader.image.repository }}:{{ .Values.reloader.image.tag }}
           imagePullPolicy: {{ .Values.reloader.image.pullPolicy }}
           args:
-            - --volume-dir=/etc/alertmanager
-            - --webhook-url=http://localhost:9093/-/reload
+            - --volume-dir=/etc/prometheus
+            - --webhook-url=http://localhost:9090/-/reload
           volumeMounts:
             - name: config
-              mountPath: /etc/alertmanager
+              mountPath: /etc/prometheus
               readOnly: true
-        - name: alertmanager
+        - name: prometheus
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           args:
-            - -config.file=/etc/alertmanager/alertmanager.yml
-            - -storage.path=/data
+            - -config.file=/etc/prometheus/prometheus.yml
+            - -storage.local.path=/data
+            - -storage.local.retention={{ .Values.retention }}
+{{- if .Values.alertmanager }}
+            - -alertmanager.url={{ .Values.alertmanager }}
+{{- end }}
 {{- if .Values.ingress.domain }}
 {{- if .Values.ingress.tls }}
-            - -web.external-url=https://alerts.{{ .Values.ingress.domain }}
+            - -web.external-url=https://prometheus.{{ .Values.ingress.domain }}
 {{- else }}
-            - -web.external-url=http://alerts.{{ .Values.ingress.domain }}
+            - -web.external-url=http://prometheus.{{ .Values.ingress.domain }}
 {{- end }}
 {{- end }}
           ports:
-            - containerPort: 9093
-              protocol: TCP
+            - name: web
+              containerPort: 9090
           volumeMounts:
             - name: storage
               mountPath: /data
             - name: config
-              mountPath: /etc/alertmanager
+              mountPath: /etc/prometheus
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
