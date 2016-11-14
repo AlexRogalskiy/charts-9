@@ -1,0 +1,9 @@
+dependencies:
+- name: prometheus
+  repository: http://roboll.io/charts
+  version: 0.1.0
+- name: alertmanager
+  repository: http://roboll.io/charts
+  version: 0.1.0
+digest: sha256:0615797d554f303af0343923c1d677e032f2f9cbcba31045993c9dde02167734
+generated: 2016-11-14T16:34:36.758327038-05:00
