@@ -13,3 +13,7 @@ kibana:
   ingress:
     domain: ""
     annotations: ""
+
+fluentd:
+  elasthcsearch:
+    host: logging-elasticsearch
