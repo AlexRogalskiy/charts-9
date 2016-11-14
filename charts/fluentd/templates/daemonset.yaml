@@ -29,6 +29,8 @@ spec:
             - name: ELASTICSEARCH_PORT
               value: "{{ .Values.elasticsearch.port }}"
           volumeMounts:
+            - name: config
+              mountPath: /etc/td-agent/
             - name: varlog
               mountPath: /var/log
             - name: docker
@@ -36,6 +38,9 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
+        - name: config
+          configMap:
+            name: {{ template "fullname" . }}
         - name: varlog
           hostPath:
             path: /var/log
