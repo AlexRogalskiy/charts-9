@@ -5,3 +5,6 @@ dependencies:
   - name: alertmanager
     version: 0.1.0
     repository: http://roboll.io/charts
+  - name: grafana
+    version: 0.1.0
+    repository: http://roboll.io/charts
