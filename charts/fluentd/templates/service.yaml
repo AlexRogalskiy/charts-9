@@ -3,14 +3,17 @@ apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
   labels:
-    app: kibana
+    app: fluentd
     name: {{ template "fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "24231"
 spec:
   selector:
-    app: kibana
+    app: fluentd
     name: {{ template "fullname" . }}
   ports:
-    - name: ui
-      port: 80
-      targetPort: ui
+    - name: metrics
+      port: 24231
+      protocol: TCP
