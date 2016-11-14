@@ -15,5 +15,5 @@ kibana:
     annotations: ""
 
 fluentd:
-  elasthcsearch:
+  elasticsearch:
     host: logging-elasticsearch
