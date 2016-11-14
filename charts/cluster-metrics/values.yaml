@@ -1,2 +1,2 @@
 prometheus:
-  alertmanager: alertmanager
+  alertmanager: http://alertmanager
