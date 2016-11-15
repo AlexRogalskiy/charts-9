@@ -5,3 +5,5 @@ metadata:
 data:
   kubernetes-cluster.json: >
 {{ .Files.Get "kubernetes-cluster.json" | indent 4 }}
+  kubernetes-pods.json: >
+{{ .Files.Get "kubernetes-pods.json" | indent 4 }}
