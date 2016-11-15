@@ -48,6 +48,9 @@ spec:
         - name: config
           configMap:
             name: {{ template "fullname" . }}
+        - name: dashboards
+          configMap:
+            name: {{ template "fullname" . }}-dashboards
         - name: storage
 {{- if .Values.storage.disabled }}
           emptyDir: {}
