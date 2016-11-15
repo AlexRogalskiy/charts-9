@@ -17,6 +17,8 @@ spec:
         - name: grafana
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - --config=/etc/grafana/grafana.ini
           env:
             - name: GF_PATHS_DATA
               value: /data
@@ -36,9 +38,16 @@ spec:
             - containerPort: 3000
               protocol: TCP
           volumeMounts:
+            - name: config
+              mountPath: /etc/grafana/
+            - name: dashboards
+              mountPath: /etc/grafana-dashboards/
             - name: storage
               mountPath: /data
       volumes:
+        - name: config
+          configMap:
+            name: {{ template "fullname" . }}
         - name: storage
 {{- if .Values.storage.disabled }}
           emptyDir: {}
