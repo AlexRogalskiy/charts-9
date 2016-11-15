@@ -22,11 +22,11 @@ storage:
 
 resources:
   limits:
-    cpu: 100m
-    memory: 512Mi
+    cpu: 200m
+    memory: 1Gi
   requests:
-    cpu: 100m
-    memory: 512Mi
+    cpu: 200m
+    memory: 1Gi
 
 blackbox:
   image:
@@ -38,10 +38,10 @@ blackbox:
   resources:
     limits:
       cpu: 100m
-      memory: 128Mi
+      memory: 64Mi
     requests:
       cpu: 100m
-      memory: 128Mi
+      memory: 64Mi
 
 node:
   image:
@@ -52,11 +52,11 @@ node:
     name: node-exporter
   resources:
     limits:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 50m
+      memory: 16Mi
     requests:
-      cpu: 100m
-      memory: 128Mi
+      cpu: 50m
+      memory: 16Mi
 
 reloader:
   image:
