@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app: dashboard
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  selector:
+    app: dashboard
+    name: {{ template "fullname" . }}
+  ports:
+    - port: 80
+      targetPort: 9090

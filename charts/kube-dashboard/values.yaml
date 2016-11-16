@@ -1,0 +1,21 @@
+replicas: 1
+
+image:
+  repository: gcr.io/google_containers/kubernetes-dashboard-amd64
+  tag: v1.4.1
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
+
+service:
+  name: kube-dashboard
+
+ingress:
+  tls: false
+  domain: ""

@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: heapster
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: heapster
+        name: {{ template "fullname" . }}
+    spec:
+      containers:
+        - name: heapster
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /heapster
+            - --source=kubernetes.summary_api:''
+            - --metric_resolution=60s
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+        - name: nannoy
+          image: {{ .Values.nanny.image.repository }}:{{ .Values.nanny.image.tag }}
+          imagePullPolicy: {{ .Values.nanny.image.pullPolicy }}
+          command:
+            - /pod_nanny
+            - --cpu={{ .Values.resources.limits.cpu }}
+            - --extra-cpu=0m
+            - --memory={{ .Values.resources.limits.memory }}
+            - --extra-memory=4Mi
+            - --threshold=5
+            - --deployment={{ template "fullname" . }}
+            - --container=heapster
+            - --poll-period=300000
+          env:
+            - name: MY_POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+{{ toYaml .Values.nanny.resources | indent 12 }}

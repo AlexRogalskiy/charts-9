@@ -1,0 +1,24 @@
+{{- if .Values.ingress.domain }}
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: dashboard
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+{{ toYaml .Values.ingress.annotations | indent 4 }}
+spec:
+{{- if .Values.ingress.tls }}
+  tls:
+    - secretName: dashboard.{{ .Values.ingress.domain }}
+{{- end }}
+  rules:
+    - host: dashboard.{{ .Values.ingress.domain }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ .Values.service.name }}
+              servicePort: 80
+{{- end }}

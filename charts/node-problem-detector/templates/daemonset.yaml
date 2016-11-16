@@ -1,0 +1,44 @@
+kind: DaemonSet
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: node-problem-detector
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  template:
+    metadata:
+      labels:
+        app: node-problem-detector
+        name: {{ template "fullname" . }}
+    spec:
+      containers:
+        - name: node-problem-detector
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /node-problem-detector
+            - --kernel-monitor=/config/kernel-monitor.json
+          securityContext:
+            privileged: true
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: log
+              mountPath: /log
+              readOnly: true
+            - name: config
+              mountPath: /config
+              readOnly: true
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+      volumes:
+        - name: log
+          hostPath:
+            path: /var/log/
+        - name: config
+          configMap:
+            name: {{ template "fullname" . }}

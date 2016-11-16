@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.service.name }}
+  labels:
+    app: heapster
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  selector:
+    app: heapster
+    name: {{ template "fullname" . }}
+  ports:
+    - port: 80
+      targetPort: 8082

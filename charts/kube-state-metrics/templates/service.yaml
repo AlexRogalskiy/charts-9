@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.service.name }}
+  namespace: kube-system
+  labels:
+    app: kube-state-metrics
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: kube-state-metrics
+    name: {{ template "fullname" . }}
+  ports:
+    - name: kube-state-metrics
+      port: 8080
+      protocol: TCP
