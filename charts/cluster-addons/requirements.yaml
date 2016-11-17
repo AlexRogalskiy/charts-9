@@ -1,0 +1,13 @@
+dependencies:
+  - name: dashboard
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: heapster
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: node-problem-detector
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: state-metrics
+    version: 0.1.0
+    repository: http://roboll.io/charts
