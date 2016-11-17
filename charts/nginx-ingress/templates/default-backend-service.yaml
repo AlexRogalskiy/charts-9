@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Values.default_backend.service.name }}
+  labels:
+    app: nginx-ingress-default-backend
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  selector:
+    app: nginx-ingress-default-backend
+    name: {{ template "fullname" . }}
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP

@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: nginx-ingress
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+{{ toYaml .Values.service.annotations | indent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: nginx-ingress
+    name: {{ template "fullname" . }}
+  ports:
+    - port: 80
+      name: http
+    - port: 443
+      name: https
