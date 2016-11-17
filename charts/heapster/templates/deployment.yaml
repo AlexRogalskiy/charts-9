@@ -20,10 +20,9 @@ spec:
           command:
             - /heapster
             - --source=kubernetes.summary_api:''
-            - --metric_resolution=60s
           resources:
 {{ toYaml .Values.resources | indent 12 }}
-        - name: nannoy
+        - name: nanny
           image: {{ .Values.nanny.image.repository }}:{{ .Values.nanny.image.tag }}
           imagePullPolicy: {{ .Values.nanny.image.pullPolicy }}
           command:
