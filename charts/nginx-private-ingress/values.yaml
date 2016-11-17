@@ -1,0 +1,11 @@
+service:
+  name: private-ingress
+  type: LoadBalancer
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+
+default_backend:
+  service:
+    name: private-ingress-default-backend
+
+class: private

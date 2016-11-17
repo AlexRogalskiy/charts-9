@@ -1,0 +1,6 @@
+dependencies:
+- name: nginx-ingress
+  repository: http://roboll.io/charts
+  version: 0.1.0
+digest: sha256:97f200da84c946281de6c9d33a548b836734de059445d17cd3b3145e15d97c22
+generated: 2016-11-17T15:36:11.870261893-05:00
