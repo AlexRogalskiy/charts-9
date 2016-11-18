@@ -1,0 +1,67 @@
+rbac: true
+
+replicas: 1
+
+image:
+  repository: palmstonegames/kube-cert-manager
+  tag: 0.3.1
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+storage:
+  disabled: false
+  class: default
+  size: 1Gi
+
+secret:
+  name: ""
+  vault:
+    path: ""
+  keys:
+    #- source: ""
+    #  target: ""
+    #- CLOUDFLARE_EMAIL
+    #- CLOUDFLARE_API_KEY
+    #- DO_AUTH_TOKEN
+    #- DNSIMPLE_EMAIL
+    #- DNSIMPLE_API_KEY
+    #- DNSMADEEASY_API_KEY
+    #- DNSMADEEASY_API_SECRET
+    #- DNSMADEEASY_SANDBOX
+    #- DYN_CUSTOMER_NAME
+    #- DYN_USER_NAME
+    #- DYN_PASSWORD
+    #- GANDI_API_KEY
+    #- GCE_PROJECT
+    #- GOOGLE_APPLICATION_CREDENTIALS
+    #- NAMECHEAP_API_USER
+    #- NAMECHEAP_API_KEY
+    #- OVH_ENDPOINT
+    #- OVH_APPLICATION_KEY
+    #- OVH_APPLICATION_SECRET
+    #- OVH_CONSUMER_KEY
+    #- PDNS_API_KEY
+    #- RFC2136_NAMESERVER
+    #- RFC2136_TSIG_ALGORITHM
+    #- RFC2136_TSIG_KEY
+    #- RFC2136_TSIG_SECRET
+    #- AWS_ACCESS_KEY_ID
+    #- AWS_SECRET_ACCESS_KEY
+    #- VULTR_API_KEY
+
+proxy:
+  image:
+    repository: palmstonegames/kubectl-proxy
+    tag: 1.4.0
+    pullPolicy: IfNotPresent
+
+acme:
+  url: https://acme-staging.api.letsencrypt.org/directory
+  #url:  https://acme-v01.api.letsencrypt.org/directory

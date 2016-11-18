@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: vault-secret-manager
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: vault-secret-manager
+        name: {{ template "fullname" . }}
+    spec:
+      serviceAccount: {{ template "fullname" . }}
+      containers:
+        - name: vault-secret-manager
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /kube-vault-controller
+            - --sync-period={{ .Values.sync.period }}
+{{- if .Values.watch.namespace }}
+            - --namespace={{ .Values.watch.namespace}}
+{{- end}}
+          env:
+            - name: VAULT_ADDR
+              value: {{ .Values.vault.address | quote }}
+{{- if .Values.vault.token.secret }}
+            - name: VAULT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.vault.token.secret }}
+                  key: VAULT_TOKEN
+{{- end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

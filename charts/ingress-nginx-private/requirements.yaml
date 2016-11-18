@@ -1,4 +1,4 @@
 dependencies:
-  - name: nginx-ingress
+  - name: ingress-nginx
     version: 0.1.0
     repository: http://roboll.io/charts

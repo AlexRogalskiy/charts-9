@@ -1,0 +1,26 @@
+rbac: true
+
+replicas: 1
+
+image:
+  repository:  quay.io/roboll/kube-vault-controller
+  tag: v0.3.0
+  pullPolicy: IfNotPresent
+
+vault:
+  address: ""
+
+sync:
+  period: 1m
+
+watch:
+  namespace: ""
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
