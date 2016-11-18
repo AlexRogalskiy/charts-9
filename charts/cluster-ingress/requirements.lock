@@ -1,0 +1,12 @@
+dependencies:
+- name: ingress-nginx
+  repository: http://roboll.io/charts
+  version: 0.1.0
+- name: ingress-nginx-private
+  repository: http://roboll.io/charts
+  version: 0.1.0
+- name: acme-cert-manager
+  repository: http://roboll.io/charts
+  version: 0.1.0
+digest: sha256:b002c969ac8a814b03cef897087522c7cda594c5c3d2d8d81de2ce202e32456c
+generated: 2016-11-18T17:17:09.356308109-05:00
