@@ -3,19 +3,19 @@ apiVersion: extensions/v1beta1
 metadata:
   name: {{ template "fullname" . }}
   labels:
-    app: nginx-ingress
+    app: nginx
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
-        app: nginx-ingress
+        app: nginx
         name: {{ template "fullname" . }}
     spec:
       serviceAccount: {{ template "fullname" . }}
       containers:
-        - name: nginx-controller
+        - name: nginx
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:

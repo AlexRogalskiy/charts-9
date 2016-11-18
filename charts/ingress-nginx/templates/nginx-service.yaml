@@ -3,14 +3,14 @@ apiVersion: v1
 metadata:
   name: {{ template "fullname" . }}
   labels:
-    app: nginx-ingress
+    app: nginx
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
   annotations:
 {{ toYaml .Values.service.annotations | indent 4 }}
 spec:
   type: {{ .Values.service.type }}
   selector:
-    app: nginx-ingress
+    app: nginx
     name: {{ template "fullname" . }}
   ports:
     - port: 80

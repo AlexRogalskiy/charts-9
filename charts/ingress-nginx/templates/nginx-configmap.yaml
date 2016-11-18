@@ -3,4 +3,4 @@ apiVersion: v1
 metadata:
   name: {{ template "fullname" . }}
 data:
-{{ toYaml .Values.config | indent 12 }}
+{{ toYaml .Values.config | indent 2 }}

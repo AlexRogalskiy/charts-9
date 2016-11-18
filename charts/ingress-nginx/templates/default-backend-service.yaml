@@ -3,11 +3,11 @@ apiVersion: v1
 metadata:
   name: {{ .Values.default_backend.service.name }}
   labels:
-    app: nginx-ingress-default-backend
+    app: nginx-default-backend
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   selector:
-    app: nginx-ingress-default-backend
+    app: nginx-default-backend
     name: {{ template "fullname" . }}
   ports:
     - port: 80
