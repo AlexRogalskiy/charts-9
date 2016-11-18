@@ -13,12 +13,14 @@ spec:
         app: heapster
         name: {{ template "fullname" . }}
     spec:
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: heapster
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           command:
             - /heapster
+            - --logtostderr
             - --source=kubernetes.summary_api:''
           resources:
 {{ toYaml .Values.resources | indent 12 }}

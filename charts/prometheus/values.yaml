@@ -11,6 +11,9 @@ image:
 service:
   name: prometheus
 
+rules: ""
+alerts: ""
+
 ingress:
   tls: false
   domain: ""

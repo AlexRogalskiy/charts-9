@@ -13,6 +13,7 @@ spec:
         app: kube-state-metrics
         name: {{ template "fullname" . }}
     spec:
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: kube-state-metrics
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

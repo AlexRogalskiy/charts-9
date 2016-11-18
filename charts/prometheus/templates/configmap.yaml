@@ -6,6 +6,6 @@ data:
   prometheus.yml: >
 {{ .Files.Get "prometheus.yml" | indent 4 }}
   rules: >
-{{ .Files.Get "rules" | indent 4 }}
+{{ .Values.rules | indent 4 }}
   alerts: >
-{{ .Files.Get "alerts" | indent 4 }}
+{{ .Values.alerts | indent 4 }}
