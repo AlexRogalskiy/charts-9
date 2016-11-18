@@ -5,7 +5,8 @@ metadata:
 data:
   prometheus.yml: >
 {{ .Files.Get "prometheus.yml" | indent 4 }}
+{{ .Values.config.extra | indent 4 }}
   rules: >
-{{ .Values.rules | indent 4 }}
+{{ .Values.config.rules | indent 4 }}
   alerts: >
-{{ .Values.alerts | indent 4 }}
+{{ .Values.config.alerts | indent 4 }}

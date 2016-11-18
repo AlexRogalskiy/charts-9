@@ -11,8 +11,11 @@ image:
 service:
   name: prometheus
 
-rules: ""
-alerts: ""
+config:
+  rules: ""
+  alerts: ""
+  extra: ""
+
 
 ingress:
   tls: false
