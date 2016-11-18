@@ -5,11 +5,13 @@ metadata:
   labels:
     app: heapster
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8082"
 spec:
   selector:
     app: heapster
     name: {{ template "fullname" . }}
   ports:
-    - name: http
-      port: 80
+    - port: 80
       targetPort: 8082
