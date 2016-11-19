@@ -1,0 +1,29 @@
+replicas: 1
+
+image:
+  repository: quay.io/roboll/kube-dns-controller
+  tag: v0.0.4
+  pullPolicy: IfNotPresent
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+ingress:
+  class: ""
+  service: ""
+
+aws:
+  region: ""
+
+secret:
+  name: ""
+  vault:
+    path: ""
+  keys:
+    #- source: ""
+    #  target: ""

@@ -1,0 +1,46 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    app: ingress-dns-manager
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      serviceAccount: {{ template "fullname" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command:
+            - /dns-controller
+{{- if .Values.ingress.class }}
+            - --ingress-class={{ .Values.ingress.class }}
+{{- end }}
+            - --publish-service={{ .Values.ingress.service }}
+          env:
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+{{- if .Values.aws.region }}
+            - name: AWS_REGION
+              value: {{ .Values.aws.region }}
+{{- end }}
+{{- $name := default .Chart.Name .Values.nameOverride -}}
+{{- $fullname := printf "%s-%s" .Release.Name $name | trunc 24 -}}
+{{- $secret := or (.Values.secret.name) ($fullname)}}
+{{- range .Values.secret.keys }}
+            - name: {{ .target }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $secret }}
+                  key: {{ .source }}
+{{ end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}

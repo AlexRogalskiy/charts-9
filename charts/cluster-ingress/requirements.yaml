@@ -5,6 +5,12 @@ dependencies:
   - name: ingress-nginx-private
     version: 0.1.0
     repository: http://roboll.io/charts
+  - name: ingress-dns-manager
+    version: 0.1.0
+    repository: http://roboll.io/charts
+#  - name: ingress-vault-claim-manager
+#    version: 0.1.0
+#    repository: http://roboll.io/charts
   - name: acme-cert-manager
     version: 0.1.0
     repository: http://roboll.io/charts
