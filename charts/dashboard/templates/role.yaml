@@ -8,8 +8,8 @@ rules:
   - apiGroups: ["*"]
     resources: ["*"]
     verbs: ["get", "watch", "list"]
-  - nonResourceURLs: ["*"]
-    verbs: ["get"]
+  - verbs: ["get"]
+    nonResourceURLs: ["*"]
 
 ---
 kind: ClusterRoleBinding

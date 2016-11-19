@@ -16,6 +16,7 @@ spec:
         scheduler.alpha.kubernetes.io/critical-pod: ''
         scheduler.alpha.kubernetes.io/tolerations: '[{"key":"CriticalAddonsOnly", "operator":"Exists"}]'
     spec:
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: dashboard
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
