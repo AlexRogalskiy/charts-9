@@ -22,7 +22,7 @@ spec:
 {{- if .Values.ingress.class }}
             - --ingress-class={{ .Values.ingress.class }}
 {{- end }}
-            - --publish-service={{ .Values.ingress.service }}
+            - --publish-service=$(POD_NAMESPACE)/{{ .Values.ingress.service }}
           env:
             - name: POD_NAMESPACE
               valueFrom:
