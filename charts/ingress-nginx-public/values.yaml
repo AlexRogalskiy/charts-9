@@ -1,16 +1,14 @@
 ingress-nginx:
   class: private
   service:
-    name: ingress-nginx-private
-    annotations:
-      service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+    name: ingress-nginx
   default_backend:
     service:
-      name: private-default-backend
+      name: default-backend
 
 ingress-dns-manager:
   ingress:
-    service: ingress-nginx-private
+    service: ingress-nginx
   aws:
     region: us-east-1
   secret:
