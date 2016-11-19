@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   acme-cert-manager:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.555925694-05:00
+    created: 2016-11-18T23:27:15.105676106-05:00
     description: A Helm chart for Kubernetes
     digest: 2b179642cf47cbf8cd9a7d2ead786104155b41cdbd6e15b9d4d6cdcec97276df
     name: acme-cert-manager
@@ -11,7 +11,7 @@ entries:
     version: 0.1.0
   alertmanager:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.55616369-05:00
+    created: 2016-11-18T23:27:15.106456398-05:00
     description: A Helm chart for Kubernetes
     digest: 41f9f099e593c64fdefda1ea168cb15bd8d901c8137f5c3ea5bffb5cab0d3126
     name: alertmanager
@@ -20,25 +20,25 @@ entries:
     version: 0.1.0
   cluster-addons:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.557714752-05:00
+    created: 2016-11-18T23:27:15.109334309-05:00
     description: A Helm chart for Kubernetes
-    digest: 604500691eaa2e33975f706de368b16e37a0929090a98bdd30d50e37431f5438
+    digest: e849e1832eb6d8d38a44045981033547aa47014b440c347a7bff7de4fd94bede
     name: cluster-addons
     urls:
     - http://roboll.io/charts/cluster-addons-0.1.0.tgz
     version: 0.1.0
   cluster-ingress:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.55866714-05:00
+    created: 2016-11-18T23:27:15.110633937-05:00
     description: A Helm chart for Kubernetes
-    digest: b7cc1a330806e6ab71a0a6ecf54880fd3b2204824575b4ca492f3f259345d4b1
+    digest: 2a2d1f4de7f3e59bb55bd4d05a9f23f49153bfc472e776931a05a10f75dcfe94
     name: cluster-ingress
     urls:
     - http://roboll.io/charts/cluster-ingress-0.1.0.tgz
     version: 0.1.0
   cluster-logging:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.559278295-05:00
+    created: 2016-11-18T23:27:15.11149208-05:00
     description: A Helm chart for Kubernetes
     digest: 428d3d6f543c2d7f324c5da6ff12ae0e21d70281e8ca12e732ca5cf4b0dd9bab
     name: cluster-logging
@@ -47,7 +47,7 @@ entries:
     version: 0.1.0
   cluster-metrics:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.560175073-05:00
+    created: 2016-11-18T23:27:15.112464467-05:00
     description: A Helm chart for Kubernetes
     digest: 7db3d25622c4574ea2693adbf86688b8e1c2c0820956c1490292564d2af7ff5b
     name: cluster-metrics
@@ -56,7 +56,7 @@ entries:
     version: 0.1.0
   dashboard:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.560363912-05:00
+    created: 2016-11-18T23:27:15.112671816-05:00
     description: A Helm chart for Kubernetes
     digest: 4649b29f260a8621ab735df4599679b126c9b95b7c487d9cd9eb6b97c83c65b4
     name: dashboard
@@ -65,7 +65,7 @@ entries:
     version: 0.1.0
   elasticsearch:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.563165786-05:00
+    created: 2016-11-18T23:27:15.117125846-05:00
     description: A Helm chart for Kubernetes
     digest: 3047d12a3ae82b8dcdb6fac956ea869940525254c010959a5098b411f70c51d7
     name: elasticsearch
@@ -73,7 +73,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.14.0.tgz
     version: 0.14.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.562869375-05:00
+    created: 2016-11-18T23:27:15.116816319-05:00
     description: A Helm chart for Kubernetes
     digest: 2df06294a0763267ddf301c2624f9be02e58fcbfcd39a157bd1556f437073529
     name: elasticsearch
@@ -81,7 +81,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.13.0.tgz
     version: 0.13.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.561596157-05:00
+    created: 2016-11-18T23:27:15.1162382-05:00
     description: A Helm chart for Kubernetes
     digest: e67445e03c968082295901a58da7dd728058020f49cbe0282178df6010960aec
     name: elasticsearch
@@ -89,7 +89,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.12.0.tgz
     version: 0.12.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.561203385-05:00
+    created: 2016-11-18T23:27:15.11438918-05:00
     description: A Helm chart for Kubernetes
     digest: eba5e78ec24ebbce616e0f0a9769b201c6f77532812613a1df9aac4a831b2337
     name: elasticsearch
@@ -97,7 +97,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.11.0.tgz
     version: 0.11.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.56089146-05:00
+    created: 2016-11-18T23:27:15.113770798-05:00
     description: A Helm chart for Kubernetes
     digest: a840080d11e5d36b9a2b637185a810c48d7cdd1d6ef17b09d447154f61c9fa70
     name: elasticsearch
@@ -105,7 +105,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.10.0.tgz
     version: 0.10.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.565090717-05:00
+    created: 2016-11-18T23:27:15.12115998-05:00
     description: A Helm chart for Kubernetes
     digest: 3730787fd7811801eb3f2e0979c061945e90488ff4d412923d0e9e2ec290410b
     name: elasticsearch
@@ -113,7 +113,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.9.0.tgz
     version: 0.9.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.564854773-05:00
+    created: 2016-11-18T23:27:15.120681549-05:00
     description: A Helm chart for Kubernetes
     digest: 518b6997f214541d3f829ef71cff537f0da60b72257989ccfb7d411b9f620085
     name: elasticsearch
@@ -121,7 +121,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.56460769-05:00
+    created: 2016-11-18T23:27:15.12019731-05:00
     description: A Helm chart for Kubernetes
     digest: d3504cfb6d49066766604f3053f9e797c78770c068792060c5814e2c7cce0056
     name: elasticsearch
@@ -129,7 +129,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.564359928-05:00
+    created: 2016-11-18T23:27:15.119645405-05:00
     description: A Helm chart for Kubernetes
     digest: 39ad1b783966c210568831d546afd33816aa0c9c33677a617e8716039e64e487
     name: elasticsearch
@@ -137,7 +137,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.564100047-05:00
+    created: 2016-11-18T23:27:15.119154306-05:00
     description: A Helm chart for Kubernetes
     digest: 023163a123469a902437567f2df2bc2a01a53737794d22820a2a968c7d7de6c9
     name: elasticsearch
@@ -145,7 +145,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.563862085-05:00
+    created: 2016-11-18T23:27:15.118645197-05:00
     description: A Helm chart for Kubernetes
     digest: 7e6ac6afe0ac0f2c18d04aef525c3bcc31d708c1b4db540e623e335040a076a7
     name: elasticsearch
@@ -153,7 +153,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.563621453-05:00
+    created: 2016-11-18T23:27:15.118140724-05:00
     description: A Helm chart for Kubernetes
     digest: c5eeebaf35bf85295b9f1743ea65557263e03dd8885bb9d8e8e6ec04721fdcb4
     name: elasticsearch
@@ -161,7 +161,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.563390287-05:00
+    created: 2016-11-18T23:27:15.117655496-05:00
     description: A Helm chart for Kubernetes
     digest: bcecaabcb6daa82a05e72fa8bdb71f522cc3a23e88000f15f6b5f072fcb03f05
     name: elasticsearch
@@ -169,7 +169,7 @@ entries:
     - http://roboll.io/charts/elasticsearch-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.560626038-05:00
+    created: 2016-11-18T23:27:15.113227167-05:00
     description: A Helm chart for Kubernetes
     digest: 5ed9f278c7d88b552995021c74680ae8799eb56c99d1cb694dd20afe4bf3031a
     name: elasticsearch
@@ -178,7 +178,7 @@ entries:
     version: 0.1.0
   fluentd:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.567382066-05:00
+    created: 2016-11-18T23:27:15.12517926-05:00
     description: A Helm chart for Kubernetes
     digest: d5a04b9e0f19f848ae93f969cdcaa0686d86c46b6336d862a8329176d514bbbf
     name: fluentd
@@ -186,7 +186,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.8.0.tgz
     version: 0.8.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.56717289-05:00
+    created: 2016-11-18T23:27:15.124953861-05:00
     description: A Helm chart for Kubernetes
     digest: eeb293a961d8e479419daee0641d769686ba493a418bb497705075c617192fae
     name: fluentd
@@ -194,7 +194,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.7.0.tgz
     version: 0.7.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.566943798-05:00
+    created: 2016-11-18T23:27:15.124512857-05:00
     description: A Helm chart for Kubernetes
     digest: e71360210c52a67ebb6266665421c774407d540157cfe4c1b537fdead755aaaf
     name: fluentd
@@ -202,7 +202,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.6.0.tgz
     version: 0.6.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.565783788-05:00
+    created: 2016-11-18T23:27:15.124043929-05:00
     description: A Helm chart for Kubernetes
     digest: d3f16a8381cefacd3e3231f84021bb0fdf1213b5cf128efa3b3e3601be3fe65e
     name: fluentd
@@ -210,7 +210,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.5.0.tgz
     version: 0.5.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.565570436-05:00
+    created: 2016-11-18T23:27:15.122370087-05:00
     description: A Helm chart for Kubernetes
     digest: b31e5a7a588de8ac3e6522286224c57dc3a876b0dc7296adcf5edec1344fe2c2
     name: fluentd
@@ -218,7 +218,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.565403348-05:00
+    created: 2016-11-18T23:27:15.121971109-05:00
     description: A Helm chart for Kubernetes
     digest: 5c1c9f97780fcf02b95ecb3571dc1a8f9f71ca6f370c3bccdbe6df9873c977f3
     name: fluentd
@@ -226,7 +226,7 @@ entries:
     - http://roboll.io/charts/fluentd-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.565249459-05:00
+    created: 2016-11-18T23:27:15.121554387-05:00
     description: A Helm chart for Kubernetes
     digest: 31c503ef159cde96da119f905d7703a37a22ad081e39c282b5517579b42c8ca6
     name: fluentd
@@ -235,7 +235,7 @@ entries:
     version: 0.2.0
   grafana:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.567788692-05:00
+    created: 2016-11-18T23:27:15.125617774-05:00
     description: A Helm chart for Kubernetes
     digest: 431a3253d6b2f7ca18c3a3241b4a3b6961d5543cba32b68016e371641db6bd33
     name: grafana
@@ -244,7 +244,7 @@ entries:
     version: 0.1.0
   heapster:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.567964656-05:00
+    created: 2016-11-18T23:27:15.125796536-05:00
     description: A Helm chart for Kubernetes
     digest: aefe411cc381748d558c52d3e4f09ba252adcbd51d7fd043f030ff9d69e2d5b0
     name: heapster
@@ -253,16 +253,16 @@ entries:
     version: 0.1.0
   ingress-dns-manager:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.568135132-05:00
+    created: 2016-11-18T23:27:15.125976131-05:00
     description: A Helm chart for Kubernetes
-    digest: 19cc6b67da1e10e038da11e240f4e128649243707e2cdc3708d93d3d162f6480
+    digest: 2e63cf4e40878896199dba63bd3bc9d864ac2f925a3292d9cd1c91fc8f55f4ec
     name: ingress-dns-manager
     urls:
     - http://roboll.io/charts/ingress-dns-manager-0.1.0.tgz
     version: 0.1.0
   ingress-nginx:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.568361431-05:00
+    created: 2016-11-18T23:27:15.126172677-05:00
     description: A Helm chart for Kubernetes
     digest: ce0269f12cebfc1da1afa7498813c50d69640de6eec03c19a15b61d58dfe07e0
     name: ingress-nginx
@@ -271,7 +271,7 @@ entries:
     version: 0.1.0
   ingress-nginx-private:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.568772228-05:00
+    created: 2016-11-18T23:27:15.126562987-05:00
     description: A Helm chart for Kubernetes
     digest: ac841957461d61d35a823521c7379414d758175f97c284f434760fa4c835a21f
     name: ingress-nginx-private
@@ -280,7 +280,7 @@ entries:
     version: 0.1.0
   ingress-nginx-public:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.569211819-05:00
+    created: 2016-11-18T23:27:15.126966025-05:00
     description: A Helm chart for Kubernetes
     digest: 641a50fc46cfa99e58895a7c581896ac29db5757cf5668a2111dd5fb4aba82bb
     name: ingress-nginx-public
@@ -289,7 +289,7 @@ entries:
     version: 0.1.0
   kibana:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.570542064-05:00
+    created: 2016-11-18T23:27:15.12965391-05:00
     description: A Helm chart for Kubernetes
     digest: 63640cb50dc03e43e03b46ea5994764d31a35b4d81211736be27e4aaaa5114b2
     name: kibana
@@ -297,7 +297,7 @@ entries:
     - http://roboll.io/charts/kibana-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.570167456-05:00
+    created: 2016-11-18T23:27:15.128191426-05:00
     description: A Helm chart for Kubernetes
     digest: 679bec3010cb35bcd68b4be38271ed47507d9ee937bdb0a75bfd89db1ae51686
     name: kibana
@@ -305,7 +305,7 @@ entries:
     - http://roboll.io/charts/kibana-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.569770054-05:00
+    created: 2016-11-18T23:27:15.127791911-05:00
     description: A Helm chart for Kubernetes
     digest: 04091b5a0b3f49011ff86c9383883742d23ef93c43b8be63e100bee79b161f15
     name: kibana
@@ -313,7 +313,7 @@ entries:
     - http://roboll.io/charts/kibana-0.2.0.tgz
     version: 0.2.0
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.569418545-05:00
+    created: 2016-11-18T23:27:15.127382665-05:00
     description: A Helm chart for Kubernetes
     digest: 4ed62b0c8ab6a8449d83fc54418539774638c7a60ef7079df91280390aea6dc5
     name: kibana
@@ -322,7 +322,7 @@ entries:
     version: 0.1.0
   kube-dashboard:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.570931615-05:00
+    created: 2016-11-18T23:27:15.130131499-05:00
     description: A Helm chart for Kubernetes
     digest: b6b6666919cb1ba6567037b1a259bfaafb849ee8232c97b364e563667c7b657c
     name: kube-dashboard
@@ -331,7 +331,7 @@ entries:
     version: 0.1.0
   kube-state-metrics:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.573012082-05:00
+    created: 2016-11-18T23:27:15.130506853-05:00
     description: A Helm chart for Kubernetes
     digest: 7408cfa82626e406aeba3799df7decf5cf7782914f73a06de597d06d0213b323
     name: kube-state-metrics
@@ -340,7 +340,7 @@ entries:
     version: 0.1.0
   nginx-ingress:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.573753774-05:00
+    created: 2016-11-18T23:27:15.130968195-05:00
     description: A Helm chart for Kubernetes
     digest: 895c29ba96aa9d681fbe08c305bffb9c47a89ba954e6d341718e25273546da2c
     name: nginx-ingress
@@ -349,7 +349,7 @@ entries:
     version: 0.1.0
   nginx-private-ingress:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.574483121-05:00
+    created: 2016-11-18T23:27:15.131491433-05:00
     description: A Helm chart for Kubernetes
     digest: b82a956f48ee31a515d28011ecb621e1f231cc9a0c82723e571bebbd1e725b6a
     name: nginx-private-ingress
@@ -358,7 +358,7 @@ entries:
     version: 0.1.0
   node-problem-detector:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.574938814-05:00
+    created: 2016-11-18T23:27:15.131680434-05:00
     description: A Helm chart for Kubernetes
     digest: 1d58cbbfaf5b230f11a43abdee288aa15b2519df1e332ebacf654ef5a5954d6a
     name: node-problem-detector
@@ -366,7 +366,7 @@ entries:
     - http://roboll.io/charts/node-problem-detector-0.1.0.tgz
     version: 0.1.0
   prometheus:
-  - created: 2016-11-18T23:19:33.575606581-05:00
+  - created: 2016-11-18T23:27:15.131965337-05:00
     description: Prometheus Metrics
     digest: 54190d973b63b418a6efbbd173905f8c2f069cc18298e330229133045acca838
     name: prometheus
@@ -375,7 +375,7 @@ entries:
     version: 0.1.0
   state-metrics:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.576112194-05:00
+    created: 2016-11-18T23:27:15.132156041-05:00
     description: A Helm chart for Kubernetes
     digest: a248140b51216860b63750a2f8ae95445f6983b10ac1e3fa348f35783df327c3
     name: state-metrics
@@ -384,11 +384,11 @@ entries:
     version: 0.1.0
   vault-secret-manager:
   - apiVersion: v1
-    created: 2016-11-18T23:19:33.576647713-05:00
+    created: 2016-11-18T23:27:15.132351661-05:00
     description: A Helm chart for Kubernetes
     digest: f5b476ad543c48a52073d2f233c1d25941252419d6d7d629a580eadc2f798745
     name: vault-secret-manager
     urls:
     - http://roboll.io/charts/vault-secret-manager-0.1.0.tgz
     version: 0.1.0
-generated: 2016-11-18T23:19:33.555378083-05:00
+generated: 2016-11-18T23:27:15.105220584-05:00
