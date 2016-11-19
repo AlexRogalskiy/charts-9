@@ -10,6 +10,7 @@ ingress-nginx:
       name: private-default-backend
 
 ingress-dns-manager:
+  nameOverride: nginx-private
   ingress:
     class: private
     service: ingress-nginx-private

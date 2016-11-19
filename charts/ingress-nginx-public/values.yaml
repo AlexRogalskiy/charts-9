@@ -8,5 +8,6 @@ ingress-nginx:
       name: default-backend
 
 ingress-dns-manager:
+  nameOverride: nginx-public
   ingress:
     service: ingress-nginx
