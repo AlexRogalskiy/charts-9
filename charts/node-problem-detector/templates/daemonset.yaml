@@ -12,6 +12,7 @@ spec:
         app: node-problem-detector
         name: {{ template "fullname" . }}
     spec:
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: node-problem-detector
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

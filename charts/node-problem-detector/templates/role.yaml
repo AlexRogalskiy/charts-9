@@ -1,19 +1,16 @@
-{{- if .Values.rbac }}
+{{ if .Values.rbac }}
 ---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
   name: {{ template "fullname" . }}
 rules:
-  - apiGroups: [""]
-    resources: ["events"]
-    verbs: ["*"]
-  - apiGroups: [""]
+  - apiGroups: ["*"]
     resources: ["*"]
     verbs: ["get", "watch", "list"]
-  - apiGroups: ["extensions"]
-    resources: ["ingresses"]
-    verbs: ["get", "watch", "list"]
+  - apiGroups: [""]
+    resources: ["events", "nodes"]
+    verbs: ["post", "put", "patch"]
 
 ---
 kind: ClusterRoleBinding
@@ -29,4 +26,4 @@ roleRef:
   name: {{ template "fullname" . }}
   namespace: {{ .Release.Namespace }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
-{{- end }}
+{{ end }}
