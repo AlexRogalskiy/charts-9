@@ -4,4 +4,4 @@ metadata:
   name: {{ template "fullname" . }}
 data:
   alertmanager.yml: >
-{{ .Files.Get "alertmanager.yml" | indent 4 }}
+{{ .Values.config | indent 4 }}

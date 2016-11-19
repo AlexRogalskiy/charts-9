@@ -1,4 +1,5 @@
 ingress-nginx:
+  nameOverride: ingress-nginx-public
   class: private
   service:
     name: ingress-nginx
