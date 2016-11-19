@@ -10,14 +10,5 @@ ingress-nginx:
 
 ingress-dns-manager:
   ingress:
+    class: private
     service: ingress-nginx-private
-  aws:
-    region: us-east-1
-  secret:
-    vault:
-      path: aws/creds/route53
-    keys:
-      - source: access_key
-        target: AWS_ACCESS_KEY_ID
-      - source: secret_key
-        target: AWS_SECRET_ACCESS_KEY
