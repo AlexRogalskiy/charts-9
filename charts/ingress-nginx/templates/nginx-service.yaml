@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ .Values.service.name }}
   labels:
     app: nginx
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
