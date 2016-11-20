@@ -1,0 +1,16 @@
+dependencies:
+  - name: cluster-addons
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: cluster-logging
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: cluster-metrics
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: cluster-ingress
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: vault-secret-manager
+    version: 0.1.0
+    repository: http://roboll.io/charts

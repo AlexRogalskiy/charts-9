@@ -6,14 +6,14 @@ metadata:
   name: {{ template "fullname" . }}
 rules:
   - apiGroups: [""]
-    resources: ["services", "endpoints", "secrets", "configmaps", "pods", "nodes"]
+    resources: ["endpoints", "secrets", "configmaps", "pods", "nodes"]
     verbs: ["get", "watch", "list"]
   - apiGroups: ["extensions"]
     resources: ["ingresses"]
-    verbs: ["get", "watch", "list"]
+    verbs: ["*"]
   - apiGroups: [""]
-    resources: ["events"]
-    verbs: ["post", "patch"]
+    resources: ["events", "services"]
+    verbs: ["*"]
 
 ---
 kind: ClusterRoleBinding
