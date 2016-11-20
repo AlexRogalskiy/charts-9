@@ -3,6 +3,7 @@ rbac: true
 
 global:
   name: ""
+  namespace: ""
 
 image:
   repository: quay.io/prometheus/node-exporter

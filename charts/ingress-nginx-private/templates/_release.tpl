@@ -8,3 +8,11 @@ We truncate at 24 chars because some Kubernetes name fields are limited to this 
 {{- $release := or .Values.global.name .Release.Name -}}
 {{- printf "%s-%s" $release $name | trunc 24 -}}
 {{- end -}}
+
+{{/*
+Overrides .Release.Namespace w/ .Values.global.namespace to allow deep overrides from parent charts.
+*/}}
+{{- define "namespace" -}}
+{{- $namespace := default .Release.Namespace .Values.global.namespace -}}
+{{- printf "%s" $namespace | trunc 24 -}}
+{{- end -}}

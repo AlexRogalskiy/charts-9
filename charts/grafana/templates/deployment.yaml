@@ -2,6 +2,7 @@ kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
   name: {{ template "release" . }}
+  namespace: {{ template "namespace" . }}
   labels:
     app: grafana
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}

@@ -2,6 +2,7 @@ replicas: 1
 
 global:
   name: ""
+  namespace: ""
 
 image:
   repository: kibana

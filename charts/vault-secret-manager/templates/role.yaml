@@ -5,6 +5,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
   name: {{ template "release" . }}
+  namespace: {{ template "namespace" . }}
 rules:
   - apiGroups: [""]
     resources: ["secrets"]
@@ -18,14 +19,15 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
   name: {{ template "release" . }}
+  namespace: {{ template "namespace" . }}
 subjects:
   - kind: ServiceAccount
     name: {{ template "release" . }}
-    namespace: {{ .Release.Namespace }}
+    namespace: {{ template "namespace" . }}
 roleRef:
   kind: ClusterRole
   name: {{ template "release" . }}
-  namespace: {{ .Release.Namespace }}
+  namespace: {{ template "namespace" . }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
 {{- else }}
 ---
@@ -49,11 +51,10 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: {{ template "release" . }}
-    namespace: {{ .Release.Namespace }}
+    namespace: {{ template "namespace" . }}
 roleRef:
   kind: ClusterRole
   name: {{ template "release" . }}
-  namespace: {{ .Release.Namespace }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
 {{- end }}
 {{- end }}

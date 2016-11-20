@@ -3,6 +3,7 @@ rbac: true
 
 global:
   name: ""
+  namespace: ""
 
 replicas: 1
 

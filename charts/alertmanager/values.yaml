@@ -1,5 +1,6 @@
 global:
   name: ""
+  namespace: ""
 
 image:
   repository: quay.io/prometheus/alertmanager

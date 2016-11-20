@@ -2,6 +2,7 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: {{ template "release" . }}
+  namespace: {{ template "namespace" . }}
 data:
   prometheus.yml: >
 {{ .Files.Get "prometheus.yml" | indent 4 }}

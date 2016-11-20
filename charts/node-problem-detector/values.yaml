@@ -2,6 +2,7 @@ rbac: true
 
 global:
   name: ""
+  namespace: ""
 
 image:
   repository: quay.io/roboll/node-problem-detector

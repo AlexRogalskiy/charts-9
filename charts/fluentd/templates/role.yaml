@@ -19,10 +19,9 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: {{ template "release" . }}
-    namespace: {{ .Release.Namespace }}
+    namespace: {{ template "namespace" . }}
 roleRef:
   kind: ClusterRole
   name: {{ template "release" . }}
-  namespace: {{ .Release.Namespace }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
 {{- end }}

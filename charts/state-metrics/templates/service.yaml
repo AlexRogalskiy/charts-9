@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: kube-system
+  namespace: {{ template "namespace" . }}
   labels:
     app: kube-state-metrics
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
