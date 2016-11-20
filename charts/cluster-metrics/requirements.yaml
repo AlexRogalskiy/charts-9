@@ -2,6 +2,12 @@ dependencies:
   - name: prometheus
     version: 0.1.0
     repository: http://roboll.io/charts
+  - name: prometheus-node-exporter
+    version: 0.1.0
+    repository: http://roboll.io/charts
+  - name: prometheus-blackbox
+    version: 0.1.0
+    repository: http://roboll.io/charts
   - name: alertmanager
     version: 0.1.0
     repository: http://roboll.io/charts

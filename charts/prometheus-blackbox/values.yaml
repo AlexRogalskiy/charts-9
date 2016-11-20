@@ -1,0 +1,21 @@
+nameOverride: blackbox
+rbac: true
+
+global:
+  name: ""
+
+image:
+  repository: quay.io/prometheus/blackbox-exporter
+  tag: v0.3.0
+  pullPolicy: IfNotPresent
+
+service:
+  name: blackbox
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 64Mi
+  requests:
+    cpu: 100m
+    memory: 64Mi
