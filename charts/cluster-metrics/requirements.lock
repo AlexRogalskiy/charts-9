@@ -2,11 +2,17 @@ dependencies:
 - name: prometheus
   repository: http://roboll.io/charts
   version: 0.1.0
+- name: prometheus-node-exporter
+  repository: http://roboll.io/charts
+  version: 0.1.0
+- name: prometheus-blackbox
+  repository: http://roboll.io/charts
+  version: 0.1.0
 - name: alertmanager
   repository: http://roboll.io/charts
   version: 0.1.0
 - name: grafana
   repository: http://roboll.io/charts
   version: 0.1.0
-digest: sha256:9970f2f3ca41cbe759267217d0546bb891af453b7edcf2ca51acfe2c16673fb6
-generated: 2016-11-14T17:16:08.284217367-05:00
+digest: sha256:4c8bd87d3dc8d119dbd3d7ac58403bf46c5d711591a8ae62b1c5273b70d4c940
+generated: 2016-11-20T16:13:43.821003967-05:00
