@@ -11,8 +11,5 @@ dependencies:
 - name: cluster-ingress
   repository: http://roboll.io/charts
   version: 0.1.0
-- name: vault-secret-manager
-  repository: http://roboll.io/charts
-  version: 0.1.0
-digest: sha256:57417dac93067dcbc01d09828a8ec7a9b82b3265c2dadc02f95edd6fc7cbb204
-generated: 2016-11-20T15:01:54.895788497-05:00
+digest: sha256:18fcee1d0b08f66b3171ddfbbb01a69fcf9f67a1514113b31285c157d3dfd83d
+generated: 2016-11-20T16:58:48.836749952-05:00
