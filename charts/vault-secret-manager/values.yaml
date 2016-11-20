@@ -9,6 +9,8 @@ image:
 
 vault:
   address: ""
+  token:
+    secret: ""
 
 sync:
   period: 1m
