@@ -27,8 +27,9 @@ spec:
             - -acme-url={{ .Values.acme.url }}
           env:
 {{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- $fullname := printf "%s-%s" .Release.Name $name | trunc 24 -}}
-{{- $secret := or (.Values.secret.name) ($fullname)}}
+{{- $release := or .Values.global.name .Release.Name -}}
+{{- $fullname := printf "%s-%s" $release $name | trunc 24 -}}
+{{- $secret := or .Values.secret.name $fullname }}
 {{- range .Values.secret.keys }}
             - name: {{ .target }}
               valueFrom:
