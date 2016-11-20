@@ -2,6 +2,8 @@ kind: ThirdPartyResource
 apiVersion: extensions/v1beta1
 metadata:
   name: secret-claim.vaultproject.io
+  annotations:
+    helm.sh/hook: pre-install
 description: Vault managed secret claim.
 versions:
   - name: v1
