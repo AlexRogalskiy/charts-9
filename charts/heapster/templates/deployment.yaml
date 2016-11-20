@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   labels:
     app: heapster
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -11,9 +11,9 @@ spec:
     metadata:
       labels:
         app: heapster
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
-      serviceAccount: {{ template "fullname" . }}
+      serviceAccount: {{ template "release" . }}
       containers:
         - name: heapster
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -34,7 +34,7 @@ spec:
             - --memory={{ .Values.resources.limits.memory }}
             - --extra-memory=4Mi
             - --threshold=5
-            - --deployment={{ template "fullname" . }}
+            - --deployment={{ template "release" . }}
             - --container=heapster
             - --poll-period=300000
           env:

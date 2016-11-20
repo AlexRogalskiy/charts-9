@@ -11,7 +11,7 @@ metadata:
 spec:
   selector:
     app: kube-state-metrics
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - name: kube-state-metrics
       port: 8080

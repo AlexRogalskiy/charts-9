@@ -11,7 +11,7 @@ spec:
     metadata:
       labels:
         app: blackbox-exporter
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
       containers:
         - name: blackbox-exporter

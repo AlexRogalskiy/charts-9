@@ -1,3 +1,6 @@
+global:
+  name: ""
+
 image:
   repository: grafana/grafana
   tag: 3.1.0

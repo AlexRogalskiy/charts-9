@@ -1,5 +1,8 @@
 rbac: true
 
+global:
+  name: ""
+
 image:
   repository: quay.io/roboll/node-problem-detector
   tag: v0.3

@@ -1,5 +1,8 @@
 rbac: true
 
+global:
+  name: ""
+
 image:
   repository: quay.io/roboll/fluentd-kubernetes
   tag: v1.19

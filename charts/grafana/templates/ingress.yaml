@@ -2,7 +2,7 @@
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   labels:
     app: grafana
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}

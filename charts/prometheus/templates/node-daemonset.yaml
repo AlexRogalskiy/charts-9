@@ -10,7 +10,7 @@ spec:
     metadata:
       labels:
         app: node-exporter
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
       hostNetwork: true
       hostPID: true

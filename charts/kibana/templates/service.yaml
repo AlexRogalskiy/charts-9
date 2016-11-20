@@ -4,12 +4,12 @@ metadata:
   name: {{ .Values.service.name }}
   labels:
     app: kibana
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   selector:
     app: kibana
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - name: ui
       port: 80

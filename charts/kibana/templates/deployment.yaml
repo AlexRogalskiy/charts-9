@@ -1,18 +1,18 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   labels:
     app: kibana
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.replicas }}
   template:
     metadata:
       labels:
         app: kibana
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
       containers:
         - name: kibana
@@ -22,7 +22,7 @@ spec:
 {{- if .Values.elasticsearch.host }}
             - --elasticsearch={{ .Values.elasticsearch.protocol }}://{{ .Values.elasticsearch.host }}:{{ .Values.elasticsearch.port }}
 {{- else }}
-            - --elasticsearch={{ .Values.elasticsearch.protocol }}://{{ template "fullname" . }}-es:{{ .Values.elasticsearch.port }}
+            - --elasticsearch={{ .Values.elasticsearch.protocol }}://{{ template "release" . }}-es:{{ .Values.elasticsearch.port }}
 {{- end }}
           ports:
             - containerPort: 5601

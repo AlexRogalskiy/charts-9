@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   labels:
     app: alertmanager
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -9,10 +9,10 @@ spec:
   replicas: 1
   template:
     metadata:
-      name: {{ template "fullname" . }}
+      name: {{ template "release" . }}
       labels:
         app: alertmanager
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
       containers:
         - name: configmap-reload
@@ -51,11 +51,11 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ template "fullname" . }}
+            name: {{ template "release" . }}
         - name: storage
 {{- if .Values.storage.disabled }}
           emptyDir: {}
 {{- else }}
           persistentVolumeClaim:
-            claimName: {{ template "fullname" . }}
+            claimName: {{ template "release" . }}
 {{- end }}

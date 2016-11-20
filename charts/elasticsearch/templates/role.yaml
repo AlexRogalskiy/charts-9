@@ -3,7 +3,7 @@
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
 rules:
   - apiGroups: [""]
     resources: ["endpoints"]
@@ -14,14 +14,14 @@ rules:
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
     namespace: {{ .Release.Namespace }}
 roleRef:
   kind: Role
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   namespace: {{ .Release.Namespace }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
 {{- end }}

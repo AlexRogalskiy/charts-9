@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: nginx-default-backend
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - port: 80
       targetPort: 8080

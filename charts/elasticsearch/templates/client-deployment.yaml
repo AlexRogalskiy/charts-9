@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}-client
+  name: {{ template "release" . }}-client
   labels:
     app: elasticsearch
     role: client
@@ -13,9 +13,9 @@ spec:
       labels:
         app: elasticsearch
         role: client
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
-      serviceAccount: {{ template "fullname" . }}
+      serviceAccount: {{ template "release" . }}
       containers:
         - name: elasticsearch
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -67,4 +67,4 @@ spec:
           emptyDir: {}
         - name: config
           configMap:
-            name: {{ template "fullname" . }}
+            name: {{ template "release" . }}

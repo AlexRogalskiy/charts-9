@@ -13,7 +13,7 @@ spec:
   selector:
     app: elasticsearch
     role: data
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - name: transport
       port: 9300

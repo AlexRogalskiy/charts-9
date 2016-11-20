@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "fullname" . }}
+  name: {{ template "release" . }}
   labels:
     app: cert-manager
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -11,9 +11,9 @@ spec:
     metadata:
       labels:
         app: cert-manager
-        name: {{ template "fullname" . }}
+        name: {{ template "release" . }}
     spec:
-      serviceAccount: {{ template "fullname" . }}
+      serviceAccount: {{ template "release" . }}
       containers:
         - name: kubectl-proxy
           image: {{ .Values.proxy.image.repository }}:{{ .Values.proxy.image.tag }}
@@ -49,5 +49,5 @@ spec:
           emptyDir: {}
 {{- else }}
           persistentVolumeClaim:
-            claimName: {{ template "fullname" . }}
+            claimName: {{ template "release" . }}
 {{- end }}

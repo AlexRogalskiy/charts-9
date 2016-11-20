@@ -10,7 +10,7 @@ metadata:
 spec:
   selector:
     app: node-exporter
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - name: scrape
       port: 9100

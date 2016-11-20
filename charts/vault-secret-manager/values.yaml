@@ -1,5 +1,8 @@
 rbac: true
 
+global:
+  name: ""
+
 replicas: 1
 
 image:

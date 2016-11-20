@@ -1,4 +1,8 @@
-replicaCount: 1
+replicas: 1
+
+global:
+  name: ""
+
 image:
   repository: kibana
   tag: 4.6

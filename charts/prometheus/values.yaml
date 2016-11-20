@@ -1,5 +1,8 @@
 rbac: true
 
+global:
+  name: ""
+
 alertmanager: ""
 retention: 43200h
 

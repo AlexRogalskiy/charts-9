@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: grafana
-    name: {{ template "fullname" . }}
+    name: {{ template "release" . }}
   ports:
     - protocol: TCP
       targetPort: 3000
