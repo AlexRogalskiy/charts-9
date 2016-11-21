@@ -3,7 +3,7 @@ set -eo pipefail
 
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-es_image=quay.io/roboll/elasticsearch-kubernetes:v5.0.0
+es_image=quay.io/roboll/elasticsearch-kubernetes:v5.0.1
 docker build -t $es_image $dir/elasticsearch-kubernetes
 docker push $es_image
 
