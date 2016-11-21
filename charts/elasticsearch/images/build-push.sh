@@ -1,7 +1,7 @@
 #! /bin/bash
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-es_image=quay.io/roboll/elasticsearch-kubernetes:v2.4.1
+es_image=quay.io/roboll/elasticsearch-kubernetes:v5.0.0
 docker build -t $es_image $dir/elasticsearch-kubernetes
 docker push $es_image
 

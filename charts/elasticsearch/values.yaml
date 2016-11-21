@@ -7,7 +7,7 @@ global:
 
 image:
   repository: quay.io/roboll/elasticsearch-kubernetes
-  tag: v2.4.1
+  tag: v5.0.0
   pullPolicy: IfNotPresent
 
 metrics:

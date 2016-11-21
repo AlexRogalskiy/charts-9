@@ -23,7 +23,6 @@ data:
 
     bootstrap:
       memory_lock: true
-      ignore_system_bootstrap_checks: true
 
     http:
       enabled: ${HTTP_ENABLE}
@@ -41,7 +40,7 @@ data:
       zen:
         minimum_master_nodes: ${NUMBER_OF_MASTERS}
 
-    plugin.mandatory: cloud-kubernetes
+    plugin.mandatory: discovery-kubernetes
 
   logging.yml: |
     es.logger.level: INFO

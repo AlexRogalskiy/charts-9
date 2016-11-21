@@ -1,3 +1,3 @@
-FROM quay.io/pires/docker-elasticsearch-kubernetes:2.4.1
+FROM quay.io/pires/docker-elasticsearch-kubernetes:5.0.0
 
-RUN /elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf
+RUN /elasticsearch/bin/elasticsearch-plugin install lmenezes/elasticsearch-kopf
