@@ -15,6 +15,17 @@ spec:
         app: elasticsearch
         role: client
         name: {{ template "release" . }}
+      annotations:
+        pod.alpha.kubernetes.io/init-containers: '[
+          {
+          "name": "sysctl",
+            "image": "busybox",
+            "command": ["sysctl", "-w", "vm.max_map_count=262144"],
+            "securityContext": {
+              "privileged": true
+            }
+          }
+        ]'
     spec:
       serviceAccount: {{ template "release" . }}
       containers:
@@ -40,6 +51,8 @@ spec:
               value: "false"
             - name: HTTP_ENABLE
               value: "true"
+            - name: NUMBER_OF_MASTERS
+              value: "{{ .Values.master.minimum }}"
           ports:
             - name: http
               containerPort: 9200

@@ -28,6 +28,7 @@ cluster:
   name: elasticsearch
 
 master:
+  replicas: 1
   resources:
     limits:
       cpu: 500m

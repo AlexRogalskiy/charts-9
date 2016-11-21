@@ -8,13 +8,24 @@ metadata:
     role: master
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.master.replicas }}
   template:
     metadata:
       labels:
         app: elasticsearch
         role: master
         name: {{ template "release" . }}
+      annotations:
+        pod.alpha.kubernetes.io/init-containers: '[
+          {
+          "name": "sysctl",
+            "image": "busybox",
+            "command": ["sysctl", "-w", "vm.max_map_count=262144"],
+            "securityContext": {
+              "privileged": true
+            }
+          }
+        ]'
     spec:
       serviceAccount: {{ template "release" . }}
       containers:
@@ -40,6 +51,8 @@ spec:
               value: "false"
             - name: HTTP_ENABLE
               value: "false"
+            - name: NUMBER_OF_MASTERS
+              value: "{{ .Values.master.minimum }}"
           ports:
             - name: transport
               containerPort: 9300
