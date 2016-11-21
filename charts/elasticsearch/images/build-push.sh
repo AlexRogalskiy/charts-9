@@ -1,4 +1,6 @@
 #! /bin/bash
+set -eo pipefail
+
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 es_image=quay.io/roboll/elasticsearch-kubernetes:v5.0.0
