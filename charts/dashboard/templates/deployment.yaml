@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: dashboard
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -12,12 +11,12 @@ spec:
     metadata:
       labels:
         app: dashboard
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
       annotations:
         scheduler.alpha.kubernetes.io/critical-pod: ''
         scheduler.alpha.kubernetes.io/tolerations: '[{"key":"CriticalAddonsOnly", "operator":"Exists"}]'
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: dashboard
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

@@ -1,8 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
 data:
   grafana.ini: |
     [dashboards.json]

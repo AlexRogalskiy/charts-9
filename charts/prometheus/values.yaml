@@ -1,9 +1,5 @@
 rbac: true
 
-global:
-  name: ""
-  namespace: ""
-
 alertmanager: ""
 retention: 43200h
 

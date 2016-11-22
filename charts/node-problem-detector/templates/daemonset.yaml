@@ -1,8 +1,7 @@
 kind: DaemonSet
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: node-problem-detector
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -11,9 +10,9 @@ spec:
     metadata:
       labels:
         app: node-problem-detector
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: node-problem-detector
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -43,4 +42,4 @@ spec:
             path: /var/log/
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}

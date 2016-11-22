@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: node-exporter
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -11,7 +10,7 @@ metadata:
 spec:
   selector:
     app: node-exporter
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - name: scrape
       port: 9100

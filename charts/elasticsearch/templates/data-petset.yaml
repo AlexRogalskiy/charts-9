@@ -1,21 +1,20 @@
 kind: PetSet
 apiVersion: apps/v1alpha1
 metadata:
-  name: {{ template "release" . }}-data
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}-data
   labels:
     app: elasticsearch
     role: data
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
-  serviceName: {{ template "release" . }}-data
+  serviceName: {{ template "fullname" . }}-data
   replicas: {{ .Values.data.replicas }}
   template:
     metadata:
       labels:
         app: elasticsearch
         role: data
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
       annotations:
         pod.alpha.kubernetes.io/initialized: "true"
         pod.alpha.kubernetes.io/init-containers: '[
@@ -29,7 +28,7 @@ spec:
           }
         ]'
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: elasticsearch
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -76,7 +75,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}
   volumeClaimTemplates:
     - metadata:
         name: storage

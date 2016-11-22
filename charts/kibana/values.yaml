@@ -1,9 +1,5 @@
 replicas: 1
 
-global:
-  name: ""
-  namespace: ""
-
 image:
   repository: kibana
   tag: 5.0.1

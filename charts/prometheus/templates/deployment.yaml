@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: prometheus
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -10,12 +9,12 @@ spec:
   replicas: 1
   template:
     metadata:
-      name: {{ template "release" . }}
+      name: {{ template "fullname" . }}
       labels:
         app: prometheus
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: configmap-reload
           image: {{ .Values.reloader.image.repository }}:{{ .Values.reloader.image.tag }}
@@ -57,11 +56,11 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}
         - name: storage
 {{- if .Values.storage.disabled }}
           emptyDir: {}
 {{- else }}
           persistentVolumeClaim:
-            claimName: {{ template "release" . }}
+            claimName: {{ template "fullname" . }}
 {{- end }}

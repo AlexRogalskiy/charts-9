@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: nginx
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -12,9 +11,9 @@ spec:
     metadata:
       labels:
         app: nginx
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: nginx
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -29,7 +28,7 @@ spec:
             - --ingress-class={{ .Values.class }}
 {{- end}}
             - --default-backend-service=$(POD_NAMESPACE)/{{ .Values.default_backend.service.name }}
-            - --nginx-configmap=$(POD_NAMESPACE)/{{ template "release" . }}
+            - --nginx-configmap=$(POD_NAMESPACE)/{{ template "fullname" . }}
           env:
             - name: POD_NAME
               valueFrom:

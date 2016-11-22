@@ -2,14 +2,13 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.default_backend.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: nginx-default-backend
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   selector:
     app: nginx-default-backend
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - port: 80
       targetPort: 8080

@@ -1,10 +1,6 @@
 nameOverride: node-exporter
 rbac: true
 
-global:
-  name: ""
-  namespace: ""
-
 image:
   repository: quay.io/prometheus/node-exporter
   tag: 0.12.0

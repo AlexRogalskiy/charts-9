@@ -1,11 +1,10 @@
 kind: DaemonSet
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: fluentd
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   template:
@@ -13,9 +12,9 @@ spec:
       name: fluentd
       labels:
         app: fluentd
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: fluentd
           image: {{ .Values.image.repository }}:{{  .Values.image.tag }}
@@ -25,7 +24,7 @@ spec:
 {{- if .Values.elasticsearch.host }}
               value: {{ .Values.elasticsearch.host }}
 {{- else }}
-              value: {{ template "release" . }}-es
+              value: {{ template "fullname" . }}-es
 {{- end }}
             - name: ELASTICSEARCH_PORT
               value: "{{ .Values.elasticsearch.port }}"
@@ -41,7 +40,7 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}
         - name: varlog
           hostPath:
             path: /var/log

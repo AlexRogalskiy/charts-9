@@ -1,10 +1,6 @@
 nameOverride: es
 rbac: true
 
-global:
-  name: ""
-  namespace: ""
-
 image:
   repository: quay.io/roboll/elasticsearch-kubernetes
   tag: v5.0.1

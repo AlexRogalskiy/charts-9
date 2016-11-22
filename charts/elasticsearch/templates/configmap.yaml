@@ -1,8 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
 data:
   elasticsearch.yml: |
     cluster:
@@ -62,8 +61,8 @@ data:
     # Xms represents the initial size of total heap space
     # Xmx represents the maximum size of total heap space
 
-    -Xms2g
-    -Xmx2g
+    #-Xms2g
+    #-Xmx2g
 
     ################################################################
     ## Expert settings

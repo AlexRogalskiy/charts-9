@@ -2,14 +2,13 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: grafana
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   selector:
     app: grafana
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - protocol: TCP
       targetPort: 3000

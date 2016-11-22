@@ -1,8 +1,7 @@
 kind: DaemonSet
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: node-exporter
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -11,7 +10,7 @@ spec:
     metadata:
       labels:
         app: node-exporter
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
       hostNetwork: true
       hostPID: true

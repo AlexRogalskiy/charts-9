@@ -1,8 +1,7 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: {{ template "release" . }}-dashboards
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}-dashboards
 data:
   kubernetes-cluster.json: >
 {{ .Files.Get "kubernetes-cluster.json" | indent 4 }}

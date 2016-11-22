@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}-master
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}-master
   labels:
     app: elasticsearch
     role: master
@@ -14,7 +13,7 @@ spec:
       labels:
         app: elasticsearch
         role: master
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
       annotations:
         pod.alpha.kubernetes.io/init-containers: '[
           {
@@ -27,7 +26,7 @@ spec:
           }
         ]'
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: elasticsearch
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -78,4 +77,4 @@ spec:
           emptyDir: {}
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}

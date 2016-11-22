@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: elasticsearch
     role: client
@@ -14,7 +13,7 @@ spec:
   selector:
     app: elasticsearch
     role: client
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - name: http
       port: 9200

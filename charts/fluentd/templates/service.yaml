@@ -2,10 +2,9 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: fluentd
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
   annotations:
     prometheus.io/scrape: "true"
@@ -13,7 +12,7 @@ metadata:
 spec:
   selector:
     app: fluentd
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - name: metrics
       port: 24231

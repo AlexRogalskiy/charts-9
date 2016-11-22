@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: vault-secret-manager
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -12,9 +11,9 @@ spec:
     metadata:
       labels:
         app: vault-secret-manager
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
-      serviceAccount: {{ template "release" . }}
+      serviceAccount: {{ template "fullname" . }}
       containers:
         - name: vault-secret-manager
           image: {{ .Values.image.repository }}:{{ .Values.image.tag }}

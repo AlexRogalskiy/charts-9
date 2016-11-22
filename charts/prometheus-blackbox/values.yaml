@@ -1,10 +1,6 @@
 nameOverride: blackbox
 rbac: true
 
-global:
-  name: ""
-  namespace: ""
-
 image:
   repository: quay.io/prometheus/blackbox-exporter
   tag: v0.3.0

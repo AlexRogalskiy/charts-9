@@ -3,7 +3,7 @@
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
-  name: {{ template "release" . }}
+  name: {{ template "fullname" . }}
 rules:
   - apiGroups: ["*"]
     resources: ["endpoints", "pods", "services", "nodes"]
@@ -15,13 +15,13 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1alpha1
 metadata:
-  name: {{ template "release" . }}
+  name: {{ template "fullname" . }}
 subjects:
   - kind: ServiceAccount
-    name: {{ template "release" . }}
-    namespace: {{ template "namespace" . }}
+    name: {{ template "fullname" . }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
-  name: {{ template "release" . }}
+  name: {{ template "fullname" . }}
   apiVersion: rbac.authorization.k8s.io/v1alpha1
 {{ end }}

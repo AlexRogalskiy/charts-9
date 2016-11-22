@@ -2,15 +2,14 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name }}
-  namespace: {{ template "namespace" . }}
   labels:
     app: kibana
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
 spec:
   selector:
     app: kibana
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - name: ui
       port: 80

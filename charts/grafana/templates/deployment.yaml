@@ -1,8 +1,7 @@
 kind: Deployment
 apiVersion: extensions/v1beta1
 metadata:
-  name: {{ template "release" . }}
-  namespace: {{ template "namespace" . }}
+  name: {{ template "fullname" . }}
   labels:
     app: grafana
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
@@ -12,7 +11,7 @@ spec:
     metadata:
       labels:
         app: grafana
-        name: {{ template "release" . }}
+        name: {{ template "fullname" . }}
     spec:
       containers:
         - name: grafana
@@ -48,14 +47,14 @@ spec:
       volumes:
         - name: config
           configMap:
-            name: {{ template "release" . }}
+            name: {{ template "fullname" . }}
         - name: dashboards
           configMap:
-            name: {{ template "release" . }}-dashboards
+            name: {{ template "fullname" . }}-dashboards
         - name: storage
 {{- if .Values.storage.disabled }}
           emptyDir: {}
 {{- else }}
           persistentVolumeClaim:
-            claimName: {{ template "release" . }}
+            claimName: {{ template "fullname" . }}
 {{- end }}

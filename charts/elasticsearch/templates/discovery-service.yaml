@@ -2,7 +2,6 @@ kind: Service
 apiVersion: v1
 metadata:
   name: {{ .Values.service.name  }}-discovery
-  namespace: {{ template "namespace" . }}
   labels:
     app: elasticsearch
     role: master
@@ -14,7 +13,7 @@ spec:
   selector:
     app: elasticsearch
     role: master
-    name: {{ template "release" . }}
+    name: {{ template "fullname" . }}
   ports:
     - name: transport
       port: 9300
