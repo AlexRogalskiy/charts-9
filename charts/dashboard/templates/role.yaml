@@ -19,7 +19,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: {{ template "fullname" . }}
-    namespace: {{ template "namespace" . }}
+    namespace: {{ .Release.Namespace }}
 roleRef:
   kind: ClusterRole
   name: {{ template "fullname" . }}
